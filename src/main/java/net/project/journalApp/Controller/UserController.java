@@ -4,6 +4,8 @@ package net.project.journalApp.Controller;
 import net.project.journalApp.Repository.UserRepository;
 import net.project.journalApp.Service.JournalEntryService;
 import net.project.journalApp.Service.UserService;
+import net.project.journalApp.Service.WeatherService;
+import net.project.journalApp.api_response.WeatherResponse;
 import net.project.journalApp.entity.JournalEntry;
 import net.project.journalApp.entity.User;
 import org.bson.types.ObjectId;
@@ -30,11 +32,28 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private WeatherService weatherService;
  //    @GetMapping
 //    public List<User> getAllUser() {
 //        return userService.getAll();
 //    }
 
+
+    @GetMapping
+    public ResponseEntity<?> greeting() {
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        WeatherResponse weatherResponse = weatherService.getWeather("Jaunpur");
+        String greeting = "";
+
+        if (weatherResponse != null) {
+            greeting = ", Feels like temperature is "+ weatherResponse.getCurrent().getFeelslike() + "°C";;
+            return new ResponseEntity<>("Hi " + authentication.getName() + greeting, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(greeting, HttpStatus.NOT_FOUND);
+    }
 
     @PutMapping
     public ResponseEntity<?> updateUser(@RequestBody User user) {
@@ -63,3 +82,5 @@ public class UserController {
     }
 
 }
+
+
