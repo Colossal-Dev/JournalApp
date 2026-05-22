@@ -5,15 +5,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-@Component
+import javax.websocket.server.ServerEndpoint;
+
+@Service
 public class WeatherService {
 
     @Autowired
     private RestTemplate restTemplate;
 
-    private static final String apiKey = "2f3f0be87700305be025952fd3a8b054";
+    private static final String apiKey = "xxxxxxxxxxxxxxxxxxxxxx";
     private static final String apiUrl = "https://api.weatherstack.com/current?access_key=API_KEY&query=CITY";
 
     public WeatherResponse getWeather(String city) {
