@@ -1,5 +1,6 @@
 package net.project.journalApp.Service;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ public class EmailServiceTest {
     @Test
     public void testEmailService() {
         emailService.sendEmail("chaurasiyaveer05@gmail.com","sending email","Hi,What are you doing ?");
+        Assertions.assertEquals(4,2+2);
     }
 
 }

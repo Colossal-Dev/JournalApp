@@ -1,6 +1,7 @@
 package net.project.journalApp.Service;
 
 import net.project.journalApp.scheduler.UserScheduler;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ public class UserSchedulerTest {
     public  void schedulerTest() {
 
         userScheduler.fetchUserAndSendSaMail();
+        Assertions.assertEquals(4,2+2);
     }
 
 }

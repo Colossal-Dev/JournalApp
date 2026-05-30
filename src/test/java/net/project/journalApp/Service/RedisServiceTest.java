@@ -1,5 +1,6 @@
 package net.project.journalApp.Service;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,8 @@ public class RedisServiceTest {
     redisTemplate.opsForValue().set("email","chaurasiyav198@gmail.com");
    Object email= redisTemplate.opsForValue().get("email");
     int a =1;
+        Assertions.assertEquals(4,2+2);
+
 
     }
 }

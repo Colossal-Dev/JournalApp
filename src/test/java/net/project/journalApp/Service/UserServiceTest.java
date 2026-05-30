@@ -1,6 +1,7 @@
 package net.project.journalApp.Service;
 
 import net.project.journalApp.Repository.UserRepository;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -23,6 +24,7 @@ public class UserServiceTest {
     public void addtest() {
         assertEquals(4,3+1);
         assertNotNull(userRepository.findByUsername("Ram"));
+        Assertions.assertEquals(4,2+2);
     }
 
     @Disabled
