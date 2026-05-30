@@ -34,6 +34,7 @@ public class UserController {
 
     @Autowired
     private WeatherService weatherService;
+
  //    @GetMapping
 //    public List<User> getAllUser() {
 //        return userService.getAll();
